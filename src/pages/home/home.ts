@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+
 
 // add this to home.ts before @Component
 class Pic {
@@ -43,8 +45,12 @@ export class HomePage {
     },
   ];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private photoViewer: PhotoViewer) {
 
+  }
+
+  onClick = (imgurl: string, title :string) => {
+    this.photoViewer.show(imgurl, title);
   }
 
 }
